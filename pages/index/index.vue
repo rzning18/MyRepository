@@ -1,9 +1,6 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
+	<view class="index">
+		<button @click="go('/pages/index/jobDetail/jobDetail')">详情</button>
 		<button open-type="getPhoneNumber" @getphonenumber="getPhoneNumber" withCredentials="true">获取手机号</button>
 	</view>
 </template>
@@ -22,13 +19,17 @@
 			let _this = this
 		},
 		methods:{
+			go(url){
+				console.log(123)
+				uni.navigateTo({
+					url:url
+				})
+			},
 			getPhoneNumber(e) {
-				console.log(e.detail.encryptedData + '2222' + e.detail.iv);
-			
 				this.encryptedData = e.detail.encryptedData;
 				this.iv = e.detail.iv;
 				this.getToken();
-				this.$request('https://santong.easy.echosite.cn/api/v1/tokenTest','POST',{id:[]},(res)=>{
+				this.$request('https://santong.easy.echosite.cn/api/v1/tokenTest','POST',{},(res)=>{
 					console.log(res)
 				})
 			},
@@ -38,12 +39,8 @@
 					success(res) {
 						if (res.code) {
 							// 获取用户信息
-							// console.log('code是:' + res.code)
 							wx.getUserInfo({
 								success(data) {
-									// console.log('用户昵称:' + data.userInfo.nickName)
-									// console.log('用户iv:' + data.iv)
-									// console.log('用户encryptedData:' + data.encryptedData)
 									// 发起请求
 									uni.request({
 										url: 'https://santong.easy.echosite.cn/api/v1/getToken',
