@@ -1,1 +1,1 @@
-<view class="_div"></view>
+<view class="job-detail"><view class="banner"><swiper><swiper-item><view class="swiper-item"><image src alt class="_img"></image></view></swiper-item></swiper></view><view class="info"><view class="info-item">岗位名称：</view><view class="info-item">岗位薪资：</view><view class="info-item">学历要求：</view><view class="info-item">经验要求：</view><view class="info-item">年龄要求：</view><view class="info-item">工作描述：</view><view class="info-item"></view><view class="info-item">工作地址</view></view></view>
