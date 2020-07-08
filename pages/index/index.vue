@@ -28,7 +28,7 @@
 			</view>
 			<!-- 列表 -->
 			<view class="work-list set100">
-				<view @click="go('/pages/index/jobDetail/jobDetail')" v-for="(item,index) in jobList" :key="index" class="work-item sa set100">
+				<view @click="go('/pages/index/jobDetail/jobDetail?id='+item.id)" v-for="(item,index) in jobList" :key="index" class="work-item sa set100">
 					<view class="avatar">
 						<img :src="url+item.recruitimages" alt="">
 					</view>
@@ -137,7 +137,7 @@
 											iv: _this.iv,
 											name: data.userInfo.nickName,
 											encryptedData: _this.encryptedData,
-											phoneNumber: 0
+											phoneNumber: 0,
 										},
 										success(token) {
 											if (token) {
