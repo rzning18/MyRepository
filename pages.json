@@ -17,24 +17,70 @@
 			"style": {
 				"navigationBarTitleText": "个人中心"
 			}
+		},
+		{
+			"path": "pages/personal/editInfo/editInfo",
+			"style": {
+				"navigationBarTitleText": "编辑信息"
+			}
+		},
+		{
+			"path": "pages/personal/employeeInfo/employeeInfo",
+			"style": {
+				"navigationBarTitleText": "推荐员工登记"
+			}
+		},
+		{
+			"path": "pages/personal/employeeStatus/employeeStatus",
+			"style": {
+				"navigationBarTitleText": "推荐员工入职"
+			}
+		},
+		{
+			"path": "pages/personal/recommenderReward/recommenderReward",
+			"style": {
+				"navigationBarTitleText": "推荐员工返费"
+			}
+		},
+		{
+			"path": "pages/personal/work/work",
+			"style": {
+				"navigationBarTitleText": "我的入职"
+			}
+		},
+		{
+			"path": "pages/personal/interview/interview",
+			"style": {
+				"navigationBarTitleText": "我的面试"
+			}
+		},
+		{
+			"path": "pages/personal/reward/reward",
+			"style": {
+				"navigationBarTitleText": "我的返费"
+			}
 		}
 	],
 	"tabBar":{
-		"color":"#007AFF",
-		"selectedColor": "#3cc51f",
+		"color":"#cdcdcd",
+		"selectedColor": "#1296db",
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
 		 "list": [{
 		        "pagePath": "pages/index/index",
+				"iconPath": "static/icon/icon_home.png",
+				"selectedIconPath": "static/icon/icon_home_active.png",
 		        "text": "首页"
 		 }, {
 		        "pagePath": "pages/personal/personal",
+				"iconPath": "static/icon/icon_personal.png",
+				"selectedIconPath": "static/icon/icon_personal_active.png",
 		        "text": "我的"
 		}]
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "三通人才网",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	}

@@ -16,9 +16,14 @@
 		<div class="content-warp">
 			<!-- 搜索栏 -->
 			<view class="search-bar set100 sa">
-				<view class="city"></view>
+				<view class="city">
+					<view></view>
+					<button class="iconfont get-city" open-type="getUserInfo" @getuserinfo="getCity" withCredentials="true">
+						{{currentCity||'获取定位'}}
+					</button>
+				</view>
 				<view class="search vc_a">
-					 <icon :type="'search'" size="20"/>
+					<icon :type="'search'" size="20" />
 					<input type="text" placeholder="请输入职位" maxlength="15">
 				</view>
 			</view>
@@ -28,7 +33,8 @@
 			</view>
 			<!-- 列表 -->
 			<view class="work-list set100">
-				<view @click="go('/pages/index/jobDetail/jobDetail?id='+item.id)" v-for="(item,index) in jobList" :key="index" class="work-item sa set100">
+				<view @click="go('/pages/index/jobDetail/jobDetail?id='+item.id)" v-for="(item,index) in jobList" :key="index"
+				 class="work-item sa set100">
 					<view class="avatar">
 						<img :src="url+item.recruitimages" alt="">
 					</view>
@@ -64,6 +70,7 @@
 				tabBar: ['全部职位', '正式工', '小时工', '学生就业'], //tab栏文字
 				currentTabIndex: 0,
 				jobList: [], //职位列表
+				currentCity: '', //当前城市
 			}
 		},
 		onLoad() {
@@ -104,18 +111,28 @@
 					console.log(res)
 				})
 			},
-			getCity(){
-				let _this = this;
-				wx.login({
-					success(res){
-						if(res.code){
+			getCity() {
+				wx.getSetting({
+					success(res) {
+						if (res.authSetting['scope.userInfo']) {
+							// 已经授权，可以直接调用 getUserInfo 获取头像昵称
 							wx.getUserInfo({
-							success(data){
-								console.log(data.userInfo.city)
-							}
-						   })
+								success: function(res) {
+									console.log(res.userInfo)
+								}
+							})
 						}
-						
+					},
+					fail() {
+						wx.login({
+							success(){
+								wx.getUserInfo({
+									success: function(res) {
+										console.log(res.userInfo)
+									}
+								})
+							}
+						})
 					}
 				})
 			},
@@ -143,7 +160,6 @@
 											if (token) {
 												uni.setStorageSync('token', token.data);
 											}
-											console.log(uni.getStorageSync('token'))
 										}
 									})
 								}
@@ -164,9 +180,11 @@
 
 		.banner {
 			.swiper {
+				height: 460rpx;
+
 				.swiper-item {
 					width: 100%;
-					height: 240px;
+					height: 460rpx;
 					overflow: hidden;
 
 					img {
@@ -185,12 +203,58 @@
 				height: 80rpx;
 
 				.city {
-					width: 150rpx;
-					background-color: #ccc;
+					display: flex;
+					align-items: center;
+					min-width: 150rpx;
+					width: auto;
+					font-size: 26rpx;
+					border-bottom: 1px solid #ccc;
+
+					&>view {
+						height: 40rpx;
+					}
+
+					&>view:first-child {
+						background: url(../../static/icon/icon_position.png);
+						width: 40rpx;
+						background-size: 100% 100%;
+						margin-right: 18rpx;
+					}
+
+					.get-city {
+						width: auto !important;
+						padding: 0 !important;
+						margin: 0;
+						font-size: 24rpx;
+						margin-right: 6rpx;
+						position: relative;
+						max-width: 160rpx;
+						white-space: nowrap;
+
+						&::after {
+							border: none;
+						}
+					}
+
+					uni-button {
+						// line-height: 40px;
+						width: auto !important;
+						padding: 0 !important;
+						margin: 0;
+						font-size: 24rpx;
+						margin-right: 6rpx;
+						position: relative;
+						max-width: 160rpx;
+						white-space: nowrap;
+
+						&::after {
+							border: none;
+						}
+					}
 				}
 
 				.search {
-					width: 500rpx;
+					width: 480rpx;
 					border-radius: 40rpx;
 					background-color: #ebebeb;
 				}
@@ -214,39 +278,48 @@
 
 			.work-list {
 				margin-top: 20rpx;
+
 				.work-item {
-                    height: 220rpx;
+					height: 220rpx;
 					margin-bottom: 20rpx;
-					border: 1px solid #ebebeb;
+					background-color: #ebebeb;
 					border-radius: 4px;
-					&>view{
+
+					&>view {
 						height: 190rpx;
 						margin-top: 10rpx;
 					}
-					.avatar{
+
+					.avatar {
 						width: 210rpx;
 						background-color: #ccc;
-						img{
+
+						img {
 							width: 100%;
 							height: 100%;
 						}
 					}
-					.info{
+
+					.info {
 						width: 490rpx;
-						background-color: #ccc;
+						color: #131313;
 						font-size: 26rpx;
-						&>view{
+
+						&>view {
 							line-height: 40rpx;
 						}
-						.job{
+
+						.job {
 							font-size: 32rpx;
 							font-weight: 400;
 						}
-						.city{
+
+						.city {
 							font-size: 28rpx;
 							margin-top: 50rpx;
 						}
-						.factory{
+
+						.factory {
 							margin-top: 20rpx;
 						}
 					}

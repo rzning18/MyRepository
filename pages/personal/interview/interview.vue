@@ -1,5 +1,5 @@
 <template>
-	<!-- 面试信息 -->
+	<!-- 我的面试信息 -->
 </template>
 
 <script>

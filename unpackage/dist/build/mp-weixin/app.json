@@ -2,27 +2,38 @@
   "pages": [
     "pages/index/index",
     "pages/index/jobDetail/jobDetail",
-    "pages/personal/personal"
+    "pages/personal/personal",
+    "pages/personal/editInfo/editInfo",
+    "pages/personal/employeeInfo/employeeInfo",
+    "pages/personal/employeeStatus/employeeStatus",
+    "pages/personal/recommenderReward/recommenderReward",
+    "pages/personal/work/work",
+    "pages/personal/interview/interview",
+    "pages/personal/reward/reward"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "三通人才网",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
-    "color": "#007AFF",
-    "selectedColor": "#3cc51f",
+    "color": "#cdcdcd",
+    "selectedColor": "#1296db",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "static/icon/icon_home.png",
+        "selectedIconPath": "static/icon/icon_home_active.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/personal/personal",
+        "iconPath": "static/icon/icon_personal.png",
+        "selectedIconPath": "static/icon/icon_personal_active.png",
         "text": "我的"
       }
     ]

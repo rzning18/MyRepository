@@ -16,6 +16,7 @@
 </script>
 
 <style>
+	@import url("static/icon/iconfont.css");
 	/*每个页面公共css */
 	.flex{
 		display: flex;
