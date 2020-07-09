@@ -10,11 +10,11 @@ export default function request(url, method,data,callback) {
 			success:callback
 		})
 	}else{
-		uni.request({
-			url: url,
-			method: method||'GET',
-			data:data,
-			success:callback
+		wx.showToast({
+			title:'未登录',
+		})
+		uni.navigateTo({
+			url:'/pages/personal/personal'
 		})
 	}
 }

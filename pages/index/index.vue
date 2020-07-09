@@ -19,7 +19,7 @@
 				<view class="city">
 					<view></view>
 					<button class="iconfont get-city" open-type="getUserInfo" @getuserinfo="getCity" withCredentials="true">
-						{{currentCity||'获取定位'}}
+						{{currentCity||'选择'}}
 					</button>
 				</view>
 				<view class="search vc_a">
@@ -84,15 +84,33 @@
 		methods: {
 			// 获取轮播图片
 			getbanner() {
-				this.$request('https://santong.easy.echosite.cn/api/v1/getBanners', 'GET', {}, (res) => {
-					this.banner = res.data;
+				let _this = this;
+				uni.request({
+					url:'https://santong.easy.echosite.cn/api/v1/getBanners',
+					method:'GET',
+					data:{},
+					success(res) {
+						_this.banner = res.data;
+					}
 				})
+				// this.$request('https://santong.easy.echosite.cn/api/v1/getBanners', 'GET', {}, (res) => {
+				// 	this.banner = res.data;
+				// })
 			},
 			// 获取职位列表
 			getJobList() {
-				this.$request('https://santong.easy.echosite.cn/api/v1/getPartrecruits', 'GET', {}, (res) => {
-					this.jobList = res.data.rows;
+				let _this = this;
+				uni.request({
+					url:'https://santong.easy.echosite.cn/api/v1/getPartrecruits',
+					method:'GET',
+					data:{},
+					success(res) {
+						_this.jobList = res.data.rows;
+					}
 				})
+				// this.$request('https://santong.easy.echosite.cn/api/v1/getPartrecruits', 'GET', {}, (res) => {
+				// 	this.jobList = res.data.rows;
+				// })
 			},
 			// tab切换
 			tabActive(index) {
@@ -230,6 +248,7 @@
 						position: relative;
 						max-width: 160rpx;
 						white-space: nowrap;
+						background-color: #fff;
 
 						&::after {
 							border: none;
