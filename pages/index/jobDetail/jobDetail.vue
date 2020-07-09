@@ -48,7 +48,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="sign-in">我要报名</view>
+		<view @click="go('/pages/index/jobDetail/signUp/signUp?id='+currentId)" class="sign-in">我要报名</view>
 	</view>
 </template>
 
@@ -74,6 +74,11 @@
 					console.log(res)
 					this.info = res.data[0]
 				})
+			},
+			go(url) {
+				uni.navigateTo({
+					url: url
+				});
 			}
 		}
 	};

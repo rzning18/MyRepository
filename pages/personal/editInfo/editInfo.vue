@@ -27,11 +27,11 @@
 			</view>
 			<view class="info-item">
 				<view>年龄：</view>
-				<view><input type="number" v-model.number="name" maxlength="3" /></view>
+				<view><input type="number" v-model.number="age" maxlength="3" /></view>
 			</view>
 			<view class="info-item">
 				<view>手机号：</view>
-				<view><input type="number" v-model.tel="name" maxlength="13" /></view>
+				<view><input type="number" v-model.tel="phone" maxlength="13" /></view>
 			</view>
 			<view class="info-item">
 				<view>身份证号：</view>
@@ -50,7 +50,7 @@
 				<view><input type="text" maxlength="30" /></view>
 			</view>
 		</view>
-		<button class="submit" type="primary">确认修改</button>
+		<button @click="submit()" class="submit" type="primary">确认修改</button>
 	</view>
 </template>
 
@@ -75,7 +75,41 @@ export default {
 	methods: {
 		init() {
 			this.$request('https://santong.easy.echosite.cn/api/v1/getInfomation','POST',{},(res)=>{
-				console.log(123,res)
+				console.log(123,res.data[0])
+				let data = res.data[0];
+				this.name = data.name;
+				this.nation = data.nation;
+				this.sex = data.sex;
+				this.age = data.age;
+				this.phone = data.phone;
+				this.cid = data.CID;
+				this.bankName = data.bankName;
+				this.bankIDC = data.bankIDC;
+			})
+		},
+		submit(){
+			this.$request('https://santong.easy.echosite.cn/api/v1/changeInfomation','POST',{
+				name:this.name,
+				age:this.age,
+				phone:this.phone,
+				CID:this.cid,
+				bankName:this.bankName,
+				bankIDC:this.bankIDC,
+				nation:this.nation,
+				sex:this.sex
+			},(res)=>{
+				if(res.data.code==200){
+					console.log(res);
+					wx.showToast({
+						icon:'success',
+						title:'提交成功'
+					})
+				}else{
+					wx.showToast({
+						icon:'none',
+						title:'提交失败'
+					})
+				}
 			})
 		},
 		radioChange(e) {

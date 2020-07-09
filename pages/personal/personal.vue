@@ -16,6 +16,10 @@
 				<view>{{ item.name }}</view>
 				<view></view>
 			</view>
+			<view @click="go('/pages/personal/QRcode/QRcode')" class="sup-item sb">
+				<view>我的推荐码</view>
+				<view></view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -59,6 +63,7 @@ export default {
 	onLoad() {
 		// 判断是否登录
 		this.isLogin = uni.getStorageSync('token') ? true : false;
+		this.getName();
 	},
 	methods: {
 		// 获取用户信息
@@ -85,9 +90,9 @@ export default {
 			this.encryptedData = e.detail.encryptedData;
 			this.iv = e.detail.iv;
 			this.getToken();
-			this.$request('https://santong.easy.echosite.cn/api/v1/tokenTest', 'POST', {}, res => {
-				console.log(res);
-			});
+			// this.$request('https://santong.easy.echosite.cn/api/v1/tokenTest', 'POST', {}, res => {
+			// 	console.log(res);
+			// });
 		},
 		getToken() {
 			console.log('开始执行获取token');
@@ -118,6 +123,10 @@ export default {
 										if (token) {
 											uni.setStorageSync('token', token.data);
 											_this.isLogin = true;
+											wx.showToast({
+												title:'登录成功',
+												type:'success'
+											})
 										}
 										console.log('获取成功：'+uni.getStorageSync('token'));
 									}

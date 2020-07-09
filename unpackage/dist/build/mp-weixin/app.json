@@ -9,7 +9,10 @@
     "pages/personal/recommenderReward/recommenderReward",
     "pages/personal/work/work",
     "pages/personal/interview/interview",
-    "pages/personal/reward/reward"
+    "pages/personal/reward/reward",
+    "pages/personal/QRcode/QRcode",
+    "pages/index/jobDetail/signUp/signUp",
+    "pages/index/city/city"
   ],
   "subPackages": [],
   "window": {
