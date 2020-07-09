@@ -3,7 +3,7 @@
 	<view class="personal">
 		<!-- 用户信息 -->
 		<view class="user-info flex">
-			<view class="avatar"><img src="" alt="" /></view>
+			<view class="avatar"><img :src="avatarUrl" alt="" /></view>
 			<view class="info">
 				<view class="user-name">{{ nickName || '昵称' }}</view>
 				<button style="margin-top: 10rpx;" v-if="!isLogin" open-type="getUserInfo" @getuserinfo="getNumber" withCredentials="true">登录</button>
@@ -32,6 +32,7 @@ export default {
 			nickName: '',
 			encryptedData: '',
 			iv: '',
+			avatarUrl:'',
 			supportList: [
 				{
 					name: '我的推荐员工登记',
@@ -76,6 +77,7 @@ export default {
 						wx.getUserInfo({
 							success: function(res) {
 								_this.nickName = res.userInfo.nickName;
+								_this.avatarUrl = res.userInfo.avatarUrl;
 								console.log(res.userInfo);
 							}
 						});
