@@ -7,13 +7,37 @@
 		</view> -->
 		<!-- 列表容器 -->
 		<view class="list-wrap">
-			<view v-for="(item,index) in list" :key="index" class="item">
+			<!-- <view v-for="(item,index) in list" :key="index" class="item">
 				<view class="name sb">
 					<view>{{item.factorys.name}}</view>
 					<view>{{item.registresult}}</view>
 				</view>
 				<view class="status">{{item.status}}</view>
 				<view class="date">{{item.registtime}}</view>
+			</view> -->
+			<view class="item">
+				<view class="name sb">
+					<view>vivo</view>
+					<view>已登记</view>
+				</view>
+				<view class="status">通过</view>
+				<view class="date">2020-07-01</view>
+			</view>
+			<view class="item">
+				<view class="name sb">
+					<view>vivo</view>
+					<view>已登记</view>
+				</view>
+				<view class="status">通过</view>
+				<view class="date">2020-05-01</view>
+			</view>
+			<view class="item">
+				<view class="name sb">
+					<view>为华</view>
+					<view>已登记</view>
+				</view>
+				<view class="status">通过</view>
+				<view class="date">2020-02-01</view>
 			</view>
 		</view>
 	</view>

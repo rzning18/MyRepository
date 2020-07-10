@@ -24,6 +24,12 @@
 				<input v-model="nation" type="text">
 			</view>
 		</view>
+		<view class="item">
+			<view>电话：</view>
+			<view>
+				<input v-model.number="phone" type="text">
+			</view>
+		</view>
 		<button @click="submit()" class="submit" type="primary">立即报名</button>
 	</view>
 </template>
@@ -36,7 +42,8 @@
 				name:'',
 				age:'',
 				sex:'',
-				nation:''
+				nation:'',
+				phone:''
 			}
 		},
 		onLoad(option) {
@@ -49,8 +56,10 @@
 					name:this.name,
 					age:this.age,
 					sex:this.sex,
-					nation:this.nation
+					nation:this.nation,
+					phone:this.phone
 				}, (res) => {
+					console.log(res)
 					if(res.data.code == 200){
 						wx.showToast({
 							icon:'success',

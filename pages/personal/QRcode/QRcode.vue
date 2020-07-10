@@ -20,7 +20,7 @@
 			init(){
 				this.$request('https://santong.easy.echosite.cn/api/v1/getBuffer','POST',{},(res)=>{
 					console.log(res.data);
-					this.list = res.data;
+					this.qrurl = res.data;
 				})
 			}
 		}

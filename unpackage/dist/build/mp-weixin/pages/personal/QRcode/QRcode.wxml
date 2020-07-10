@@ -1,1 +1,1 @@
-<view class="qr-code data-v-6de1751f"><view class="wrap data-v-6de1751f"><image src="{{url+qrurl}}" alt class="_img data-v-6de1751f"></image></view></view>
+<view class="qr-code data-v-6d4f7281"><view class="wrap data-v-6d4f7281"><image src="{{url+qrurl}}" alt class="_img data-v-6d4f7281"></image></view></view>

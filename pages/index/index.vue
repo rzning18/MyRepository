@@ -67,7 +67,7 @@
 				iv: '',
 				banner: [], //轮播图
 				url: '', //前置url
-				tabBar: ['全部职位', '正式工', '小时工', '学生就业'], //tab栏文字
+				tabBar: ['全部职位', '推荐'], //tab栏文字
 				currentTabIndex: 0,
 				jobList: [], //职位列表
 				currentCity: '', //当前城市

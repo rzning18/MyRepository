@@ -10,20 +10,20 @@
 			<view class="item">
 			<!-- <view v-for="(item,index) in list" :key="index" class="item"> -->
 				<view class="name sb">
-					<view>企业名字</view>
+					<view>vivi</view>
 					<view>2019-01-02</view>
 				</view>
 				<view class="status sb">
-					<view>工种：</view>
-					<view>在职：</view>
+					<view>工种：普工</view>
+					<view>在职：是</view>
 				</view>
 				<view class="relative flex">
-					<view>被推荐人：</view>
-					<view>推荐人：</view>
+					<view>被推荐人：张三</view>
+					<view>推荐人：张三</view>
 				</view>
 				<view class="reward flex">
-					<view>推荐返现：</view>
-					<view>返现周期：</view>
+					<view>推荐返现：30</view>
+					<view>返现周期：15天</view>
 				</view>
 			</view>
 		</view>
