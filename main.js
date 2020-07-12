@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import request from 'api/request.js'
+import store from './store/index.js'
 
 
 Vue.prototype.$request = request
@@ -10,6 +11,7 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+    ...App,
+	store
 })
 app.$mount()

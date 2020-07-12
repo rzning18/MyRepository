@@ -10,11 +10,17 @@
 	export default {
 		data() {
 			return {
-				qrurl:''
+				qrurl:'',
+				url:''
 			}
 		},
 		onLoad(){
+			this.url = getApp().globalData.url;
 			this.init();
+			this.$request('https://santong.easy.echosite.cn/api/v1/getBuffer','POST',{},(res)=>{
+				console.log(res.data);
+				this.qrurl = res.data;
+			})
 		},
 		methods: {
 			init(){
@@ -30,10 +36,12 @@
 <style lang="less" scoped>
 .qr-code{
 	width: 100%;
+	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	.wrap{
+		margin-top: -200rpx;
 		width: 680rpx;
 		height: 680rpx;
 		img{

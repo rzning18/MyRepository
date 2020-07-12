@@ -28,7 +28,7 @@
 					</view>
 					<view class="req-item flex">
 						<view>岗位详情：</view>
-						<view>{{info.detailcontent}}</view>
+						<view v-html="info.detailcontent"></view>
 					</view>
 				</view>
 				<view class="title set100">公司信息：</view>
@@ -39,7 +39,7 @@
 					</view>
 					<view class="req-item flex">
 						<view>公司简介：</view>
-						<view>{{info.factorycontent}}</view>
+						<view v-html="info.factorycontent"></view>
 					</view>
 					<view class="req-item flex">
 						<view>公司地址：</view>
@@ -117,6 +117,9 @@
 					font-size: 26rpx;
 					.req-item {
 						line-height: 50rpx;
+						&>view:last-child{
+							max-width: 500rpx;
+						}
 					}
 				}
 			}
@@ -129,6 +132,7 @@
 			left: 0;
 			bottom: 0;
 			border-top: 1px solid #ccc;
+			background-color: #fff;
 		}
 	}
 </style>

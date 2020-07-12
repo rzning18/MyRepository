@@ -11,6 +11,7 @@ export default function request(url, method,data,callback) {
 		})
 	}else{
 		wx.showToast({
+			icon:'none',
 			title:'未登录',
 		})
 		uni.navigateTo({

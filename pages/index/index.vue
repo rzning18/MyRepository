@@ -18,8 +18,8 @@
 			<view class="search-bar set100 sa">
 				<view class="city">
 					<view></view>
-					<button class="iconfont get-city" open-type="getUserInfo" @getuserinfo="getCity" withCredentials="true">
-						{{currentCity||'选择'}}
+					<button @click="go('/pages/index/city/city')" class="iconfont get-city" open-type="getUserInfo" @getuserinfo="getCity" withCredentials="true">
+						{{city||'选择'}}
 					</button>
 				</view>
 				<view class="search vc_a">
@@ -40,12 +40,12 @@
 					</view>
 					<view class="info">
 						<view class="job sb">
-							<view>{{item.factorys.name}}{{item.post}}</view>
+							<view>{{item.factorys.name}}</view>
 							<view>{{item.pay}}元/月</view>
 						</view>
 						<view class="city sb">
 							<view>{{item.factorys.city[1]}}</view>
-							<view></view>
+							<view>{{item.post}}</view>
 						</view>
 						<view class="factory sb">
 							<view>{{item.factorys.name}}</view>
@@ -62,6 +62,7 @@
 	export default {
 		data() {
 			return {
+				city: '',
 				// 加密数据
 				encryptedData: '',
 				iv: '',
@@ -73,22 +74,28 @@
 				currentCity: '', //当前城市
 			}
 		},
-		onLoad() {
+		created() {
+			console.log(this.$route)
+		},
+		onLoad(option) {
 			this.url = getApp().globalData.url;
-			console.log('程序启动');
+			this.city = option.city;
 			let _this = this;
 			this.getbanner();
 			this.getJobList();
 			this.getCity();
+			this.$store.commit('increment');
+			console.log(this.$store.state.count);
+			// this.loadInfo();
 		},
 		methods: {
 			// 获取轮播图片
 			getbanner() {
 				let _this = this;
 				uni.request({
-					url:'https://santong.easy.echosite.cn/api/v1/getBanners',
-					method:'GET',
-					data:{},
+					url: 'https://santong.easy.echosite.cn/api/v1/getBanners',
+					method: 'GET',
+					data: {},
 					success(res) {
 						_this.banner = res.data;
 					}
@@ -101,9 +108,9 @@
 			getJobList() {
 				let _this = this;
 				uni.request({
-					url:'https://santong.easy.echosite.cn/api/v1/getPartrecruits',
-					method:'GET',
-					data:{},
+					url: 'https://santong.easy.echosite.cn/api/v1/getPartrecruits',
+					method: 'GET',
+					data: {},
 					success(res) {
 						_this.jobList = res.data.rows;
 					}
@@ -127,31 +134,6 @@
 				this.getToken();
 				this.$request('https://santong.easy.echosite.cn/api/v1/tokenTest', 'POST', {}, (res) => {
 					console.log(res)
-				})
-			},
-			getCity() {
-				wx.getSetting({
-					success(res) {
-						if (res.authSetting['scope.userInfo']) {
-							// 已经授权，可以直接调用 getUserInfo 获取头像昵称
-							wx.getUserInfo({
-								success: function(res) {
-									console.log(res.userInfo)
-								}
-							})
-						}
-					},
-					fail() {
-						wx.login({
-							success(){
-								wx.getUserInfo({
-									success: function(res) {
-										console.log(res.userInfo)
-									}
-								})
-							}
-						})
-					}
 				})
 			},
 			getToken() {
@@ -185,7 +167,46 @@
 						}
 					}
 				})
-			}
+			},
+			getCity() {
+                let _this = this;
+				//获取当前位置信息
+				wx.getSetting({
+					success: res => {
+						//查看是否获取位置信息
+						// if (!res.authSetting['scope.userLocation']) {
+					    // 回调获取参数用为api接口
+						wx.getLocation({
+							success: function(res) {
+								console.log('位置信息---', res);
+								var longitude = res.longitude;
+								var latitude = res.latitude;
+								// 请求百度api接口
+								wx.request({
+									url: 'http://api.map.baidu.com/reverse_geocoding/v3/?ak=ICeBcOxOO4HUxbemDClKVuzK6ivSmmFp&output=json&coordtype=wgs84ll&location=' +
+										latitude + ',' + longitude,
+									data: {},
+									type: 'post',
+									header: {
+										'Content-Type': 'application/json'
+									},
+									success: function(res) {
+										// success  
+										_this.city = res.data.result.addressComponent.city;
+										console.log('城市名称---', res.data.result.addressComponent.city);
+									},
+									fail: function() {
+										page.setData({
+											currentCity: "获取定位失败"
+										});
+									}
+								})
+							},
+						})
+						// }
+					}
+				})
+			},
 		}
 	}
 </script>
