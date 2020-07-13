@@ -18,7 +18,8 @@
 			<view class="search-bar set100 sa">
 				<view class="city">
 					<view></view>
-					<button @click="go('/pages/index/city/city')" class="iconfont get-city" open-type="getUserInfo" @getuserinfo="getCity" withCredentials="true">
+					<button @click="go('/pages/index/city/city')" class="iconfont get-city" open-type="getUserInfo" @getuserinfo="getCity"
+					 withCredentials="true">
 						{{city||'选择'}}
 					</button>
 				</view>
@@ -29,12 +30,11 @@
 			</view>
 			<!-- tab栏 -->
 			<view class="tab-bar sa">
-				<view @click="tabActive(index)" v-for="(item,index) in tabBar" :key="index" :class="index==currentTabIndex?'tab-active':''">{{item}}</view>
+				<view @click="tabActive(index,item.screen)" v-for="(item,index) in tabBar" :key="index" :class="index==currentTabIndex?'tab-active':''">{{item.name}}</view>
 			</view>
 			<!-- 列表 -->
 			<view class="work-list set100">
-				<view @click="go('/pages/index/jobDetail/jobDetail?id='+item.id)" v-for="(item,index) in jobList" :key="index"
-				 class="work-item sa set100">
+				<view  @click="go('/pages/index/jobDetail/jobDetail?id='+item.id)" v-for="(item,index) in jobList" :key="index" v-if="item.craft_text==screen||screen=='all'" class="work-item sa set100">
 					<view class="avatar">
 						<img :src="url+item.recruitimages" alt="">
 					</view>
@@ -68,7 +68,24 @@
 				iv: '',
 				banner: [], //轮播图
 				url: '', //前置url
-				tabBar: ['全部职位', '推荐'], //tab栏文字
+				screen:'all',//tab筛选条件
+				tabBar: [
+					{
+						name:'全部职位',
+						screen:'all',
+					},
+					{
+						name:'正式工',
+						screen:'正式工',
+					},
+					{
+						name:'小时工',
+						screen:'小时工',
+					},
+					{
+						name:'学生就业',
+						screen:'学生就业',
+					}], //tab栏文字
 				currentTabIndex: 0,
 				jobList: [], //职位列表
 				currentCity: '', //当前城市
@@ -115,13 +132,11 @@
 						_this.jobList = res.data.rows;
 					}
 				})
-				// this.$request('https://santong.easy.echosite.cn/api/v1/getPartrecruits', 'GET', {}, (res) => {
-				// 	this.jobList = res.data.rows;
-				// })
 			},
 			// tab切换
-			tabActive(index) {
+			tabActive(index,screen) {
 				this.currentTabIndex = index;
+			    this.screen = screen;
 			},
 			go(url) {
 				uni.navigateTo({
@@ -136,46 +151,14 @@
 					console.log(res)
 				})
 			},
-			getToken() {
-				let _this = this;
-				wx.login({
-					success(res) {
-						if (res.code) {
-							// 获取用户信息
-							wx.getUserInfo({
-								success(data) {
-									// 发起请求
-									uni.request({
-										url: 'https://santong.easy.echosite.cn/api/v1/getToken',
-										method: 'POST',
-										data: {
-											recommenderid: 1,
-											code: res.code,
-											iv: _this.iv,
-											name: data.userInfo.nickName,
-											encryptedData: _this.encryptedData,
-											phoneNumber: 0,
-										},
-										success(token) {
-											if (token) {
-												uni.setStorageSync('token', token.data);
-											}
-										}
-									})
-								}
-							})
-						}
-					}
-				})
-			},
 			getCity() {
-                let _this = this;
+				let _this = this;
 				//获取当前位置信息
 				wx.getSetting({
 					success: res => {
 						//查看是否获取位置信息
 						// if (!res.authSetting['scope.userLocation']) {
-					    // 回调获取参数用为api接口
+						// 回调获取参数用为api接口
 						wx.getLocation({
 							success: function(res) {
 								console.log('位置信息---', res);

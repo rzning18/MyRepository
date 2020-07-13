@@ -79,31 +79,9 @@
 			this.poper = uni.getStorageSync('info') ? true : false;
 		},
 		methods: {
-			// 获取用户信息
-			// getName() {
-			// 	let _this = this;
-			// 	wx.getSetting({
-			// 		success(res) {
-			// 			if (res.authSetting['scope.userInfo']) {
-			// 				// 已经授权，可以直接调用 getUserInfo 获取头像昵称
-			// 				wx.getUserInfo({
-			// 					success: function(res) {
-			// 						_this.nickName = res.userInfo.nickName;
-			// 						_this.avatarUrl = res.userInfo.avatarUrl;
-			// 						console.log(res.userInfo);
-			// 					}
-			// 				});
-			// 			} else {
-			// 				_this.isLogin = false;
-			// 			}
-			// 		}
-			// 	});
-			// },
-			// userinfo和phoneNumber对应的电话encrypteData不一样，所以需要单独用 getPhoneNumber来获取手机号的加密
 			getNumber(e) {
 				this.encryptedData = e.detail.encryptedData;
 				this.iv = e.detail.iv;
-				// this.getToken();
 				this.login();
 				// this.$request('https://santong.easy.echosite.cn/api/v1/tokenTest', 'POST', {}, res => {
 				// 	console.log(res);
