@@ -18,7 +18,7 @@
 			<view class="avatar"><img :src="avatarUrl" alt="" /></view>
 			<view class="info">
 				<view class="user-name">{{ nickName || '昵称' }}</view>
-				<button style="margin-top: 10rpx;" v-if="!isLogin" open-type="getUserInfo" @getuserinfo="getNumber" withCredentials="true">登录</button>
+				<button style="margin-top: 10rpx;" v-if="!isLogin" open-type="getPhoneNumber" @getphonenumber="getNumber" withCredentials="true">登录</button>
 				<view v-if="isLogin" @click="go('/pages/personal/editInfo/editInfo')" class="edit iconfont icon-bianji">点击修改用户信息</view>
 			</view>
 		</view>
@@ -113,12 +113,11 @@
 							url: 'https://santong.easy.echosite.cn/api/v1/getToken',
 							method: 'POST',
 							data: {
-								recommenderid: 1,
+								recommenderid: 0,
 								code: res.code,
 								iv: _this.iv,
 								name: _this.nickName,
 								encryptedData: _this.encryptedData,
-								phoneNumber: 0
 							},
 							success(token) {
 								if (token) {
@@ -158,12 +157,11 @@
 										url: 'https://santong.easy.echosite.cn/api/v1/getToken',
 										method: 'POST',
 										data: {
-											recommenderid: 1,
+											recommenderid: 0,
 											code: res.code,
 											iv: _this.iv,
 											name: data.userInfo.nickName,
-											encryptedData: _this.encryptedData,
-											phoneNumber: 0
+											encryptedData: _this.encryptedData
 										},
 										success(token) {
 											if (token) {
