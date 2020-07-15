@@ -1,0 +1,56 @@
+.reward.data-v-dcc4ef8e {
+  width: 100%;
+}
+.reward .list-wrap.data-v-dcc4ef8e {
+  width: 92%;
+  padding: 0 4%;
+  margin-top: 20rpx;
+}
+.reward .list-wrap .item.data-v-dcc4ef8e {
+  width: 92%;
+  padding: 4%;
+  height: 230rpx;
+  border-radius: 4px;
+  background-color: #ebebeb;
+  margin-bottom: 20rpx;
+}
+.reward .list-wrap .item .name.data-v-dcc4ef8e {
+  line-height: 56rpx;
+  font-size: 28rpx;
+}
+.reward .list-wrap .item .name > view.data-v-dcc4ef8e {
+  width: 50%;
+}
+.reward .list-wrap .item .status.data-v-dcc4ef8e {
+  margin-top: 30rpx;
+  line-height: 56rpx;
+  font-size: 30rpx;
+}
+.reward .list-wrap .item .status > view.data-v-dcc4ef8e {
+  width: 50%;
+}
+.reward .list-wrap .item .relative.data-v-dcc4ef8e {
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.reward .list-wrap .item .relative > view.data-v-dcc4ef8e {
+  width: 50%;
+}
+.reward .list-wrap .item .money.data-v-dcc4ef8e {
+  margin-top: 14rpx;
+  font-size: 30rpx;
+}
+.reward .list-wrap .item .money > view.data-v-dcc4ef8e {
+  width: 50%;
+}
+.reward .list-wrap .item .reward.data-v-dcc4ef8e {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+}
+.reward .list-wrap .item .reward > view.data-v-dcc4ef8e {
+  width: 50%;
+}
+

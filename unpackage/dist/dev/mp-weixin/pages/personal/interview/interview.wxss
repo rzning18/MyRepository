@@ -1,0 +1,38 @@
+.interview.data-v-02789d1d {
+  width: 100%;
+}
+.interview .list-wrap.data-v-02789d1d {
+  width: 92%;
+  padding: 0 4%;
+  margin-top: 20rpx;
+}
+.interview .list-wrap .item.data-v-02789d1d {
+  width: 92%;
+  padding: 4%;
+  height: 230rpx;
+  border-radius: 4px;
+  background-color: #ebebeb;
+  margin-bottom: 20rpx;
+}
+.interview .list-wrap .item .name.data-v-02789d1d {
+  line-height: 56rpx;
+}
+.interview .list-wrap .item .name > view.data-v-02789d1d:first-child {
+  font-size: 40rpx;
+}
+.interview .list-wrap .item .name > view.data-v-02789d1d:last-child {
+  font-size: 28rpx;
+}
+.interview .list-wrap .item .status.data-v-02789d1d {
+  margin-top: 30rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #39CC3F;
+  font-weight: 600;
+}
+.interview .list-wrap .item .date.data-v-02789d1d {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  text-align: right;
+}
+

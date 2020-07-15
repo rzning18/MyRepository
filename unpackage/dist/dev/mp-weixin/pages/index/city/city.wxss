@@ -1,0 +1,31 @@
+.city.data-v-40c4cbae {
+  width: 100%;
+  padding: 40rpx;
+}
+.city .title.data-v-40c4cbae {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #666;
+}
+.city .item .initials.data-v-40c4cbae {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 20rpx 0;
+}
+.city .item .contain-list.data-v-40c4cbae {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.city .item .contain-list .contain-item.data-v-40c4cbae {
+  font-size: 28rpx;
+  background-color: #ebebeb;
+  width: 200rpx;
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin: 20rpx 20rpx 20rpx 0;
+}
+

@@ -1,0 +1,20 @@
+.sign-up.data-v-a95a50b0 {
+  width: 100%;
+}
+.sign-up .item.data-v-a95a50b0 {
+  width: 80%;
+  margin: 30rpx auto;
+  border-bottom: 1px solid #ccc;
+}
+.sign-up .item > view.data-v-a95a50b0:first-child {
+  font-size: 28rpx;
+}
+.sign-up .item > view.data-v-a95a50b0:last-child {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.sign-up .submit.data-v-a95a50b0 {
+  width: 80%;
+  margin: 30px auto;
+}
+

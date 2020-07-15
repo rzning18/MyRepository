@@ -1,0 +1,53 @@
+.employee-reward.data-v-1ba7896a {
+  width: 100%;
+}
+.employee-reward .list-wrap.data-v-1ba7896a {
+  width: 92%;
+  padding: 0 4%;
+  margin-top: 20rpx;
+}
+.employee-reward .list-wrap .item.data-v-1ba7896a {
+  width: 92%;
+  padding: 4%;
+  height: 230rpx;
+  border-radius: 4px;
+  background-color: #ebebeb;
+  margin-bottom: 20rpx;
+}
+.employee-reward .list-wrap .item .name.data-v-1ba7896a {
+  line-height: 56rpx;
+  font-size: 28rpx;
+}
+.employee-reward .list-wrap .item .name > view.data-v-1ba7896a {
+  width: 50%;
+}
+.employee-reward .list-wrap .item .status.data-v-1ba7896a {
+  margin-top: 30rpx;
+  line-height: 56rpx;
+  font-size: 30rpx;
+}
+.employee-reward .list-wrap .item .status > view.data-v-1ba7896a {
+  width: 50%;
+}
+.employee-reward .list-wrap .item .relative.data-v-1ba7896a {
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.employee-reward .list-wrap .item .relative > view.data-v-1ba7896a {
+  width: 50%;
+}
+.employee-reward .list-wrap .item .money.data-v-1ba7896a {
+  margin-top: 14rpx;
+  font-size: 30rpx;
+}
+.employee-reward .list-wrap .item .reward.data-v-1ba7896a {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+}
+.employee-reward .list-wrap .item .reward > view.data-v-1ba7896a {
+  width: 50%;
+}
+

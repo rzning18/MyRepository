@@ -95,12 +95,16 @@
 			console.log(this.$route)
 		},
 		onLoad(option) {
+			if(option.city){
+				this.city = option.city;
+			}else{
+				this.getCity();
+			}
 			this.url = getApp().globalData.url;
 			this.city = option.city;
 			let _this = this;
 			this.getbanner();
 			this.getJobList();
-			this.getCity();
 			this.$store.commit('increment');
 			console.log(this.$store.state.count);
 			// this.loadInfo();
@@ -333,7 +337,7 @@
 						}
 
 						.job {
-							font-size: 32rpx;
+							font-size: 28rpx;
 							font-weight: 400;
 						}
 

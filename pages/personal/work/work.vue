@@ -7,20 +7,19 @@
 		</view> -->
 		<!-- 列表容器 -->
 		<view class="list-wrap">
-			<view class="item">
-			<!-- <view v-for="(item,index) in list" :key="index" class="item"> -->
+			<view v-for="(item,index) in list" :key="index" class="item">
 				<view class="name sb">
-					<view>企业名字</view>
-					<view>工种:普工</view>
+					<view>{{item.factorys.name}}</view>
+					<view>工种:{{item.craft_text}}</view>
 				</view>
 				<view class="status flex">
-					<view>城市：</view>
-					<view>入职时间：</view>
+					<view>城市：{{item.factorys.city}}</view>
+					<view>入职时间：{{item.entrydate}}</view>
 				</view>
 				<view class="relative flex">
-					<view>返现：</view>
-					<view>返现周期：</view>
-					<view>是否达成：</view>
+					<view>返现：{{item.recommoney}}</view>
+					<view>返现周期：{{item.repaydays}}</view>
+					<view>是否达成：{{item.isrepay}}</view>
 				</view>
 			</view>
 		</view>
@@ -41,7 +40,7 @@
 		},
 		methods:{
 			init(){
-				this.$request('https://santong.easy.echosite.cn/api/v1/myEntryData','POST',{},(res)=>{
+				this.$request('https://santong.easy.echosite.cn/api/v1/entryData','POST',{},(res)=>{
 					console.log(res.data)
 					this.list = res.data;
 				})

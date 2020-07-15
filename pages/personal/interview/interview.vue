@@ -1,5 +1,5 @@
 <template>
-	<!-- 我的推荐员工登记信息 -->
+	<!-- 我的面试登记 -->
 	<view class="interview">
 		<!-- tab栏 -->
 		<!-- <view class="tab-bar sb">
@@ -7,16 +7,15 @@
 		</view> -->
 		<!-- 列表容器 -->
 		<view class="list-wrap">
-			<view class="item">
-			<!-- <view v-for="(item,index) in list" :key="index" class="item"> -->
+			<view v-for="(item,index) in list" :key="index" class="item">
 				<view class="name sb">
-					<view>登记企业：</view>
-					<view>已登记</view>
+					<view>登记企业：{{item.factorys.name}}</view>
+					<view>{{item.registresult}}</view>
 				</view>
 				<view class="status">
-					<view>面试状态：通过</view>
+					<view>面试状态：{{item.status_text}}</view>
 				</view>
-				<view class="date">2019-01-02</view>
+				<view class="date">{{item.registtime}}</view>
 			</view>
 		</view>
 	</view>

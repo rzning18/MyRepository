@@ -7,22 +7,21 @@
 		</view> -->
 		<!-- 列表容器 -->
 		<view class="list-wrap">
-			<view class="item">
-			<!-- <view v-for="(item,index) in list" :key="index" class="item"> -->
+			<view v-for="(item,index) in list" :key="index" class="item">
 				<view class="name flex">
-					<view>被推荐人姓名：</view>
-					<view>手机号：</view>
+					<view>被推荐人姓名：{{item.berecommender.name}}</view>
+					<view>手机号：{{item.berecommender.phone}}</view>
 				</view>
 				<view class="name flex">
-					<view>推荐人姓名：</view>
-					<view>手机号：</view>
+					<view>推荐人姓名：{{item.recommender.name}}</view>
+					<view>手机号：{{item.recommender.phone}}</view>
 				</view>
 				<view class="money">
-					<view>返现金额：</view>
+					<view>返现金额：{{item.recommoney}}</view>
 				</view>
 				<view class="status flex">
-					<view>被推荐人：</view>
-					<view>推荐人：</view>
+					<view>返现状态：{{item.status}}</view>
+					<view>返费时间：{{item.repaydate}}</view>
 				</view>
 			</view>
 		</view>

@@ -1,0 +1,52 @@
+.employee-status.data-v-56edf019 {
+  width: 100%;
+}
+.employee-status .list-wrap.data-v-56edf019 {
+  width: 92%;
+  padding: 0 4%;
+  margin-top: 20rpx;
+}
+.employee-status .list-wrap .item.data-v-56edf019 {
+  width: 92%;
+  padding: 4%;
+  height: 330rpx;
+  border-radius: 4px;
+  background-color: #ebebeb;
+  margin-bottom: 20rpx;
+}
+.employee-status .list-wrap .item .name.data-v-56edf019 {
+  line-height: 56rpx;
+}
+.employee-status .list-wrap .item .name > view.data-v-56edf019:first-child {
+  font-size: 40rpx;
+}
+.employee-status .list-wrap .item .name > view.data-v-56edf019:last-child {
+  font-size: 28rpx;
+}
+.employee-status .list-wrap .item .status.data-v-56edf019 {
+  margin-top: 30rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+}
+.employee-status .list-wrap .item .status > view.data-v-56edf019:last-child {
+  color: #39CC3F;
+  font-weight: 600;
+}
+.employee-status .list-wrap .item .relative.data-v-56edf019 {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.employee-status .list-wrap .item .relative > view.data-v-56edf019 {
+  width: 50%;
+}
+.employee-status .list-wrap .item .reward.data-v-56edf019 {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+}
+.employee-status .list-wrap .item .reward > view.data-v-56edf019 {
+  width: 50%;
+}
+

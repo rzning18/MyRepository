@@ -1,0 +1,42 @@
+.job-detail .banner .swiper.data-v-2b870527 {
+  height: 500rpx;
+}
+.job-detail .banner .swiper .swiper-item.data-v-2b870527 {
+  height: 500rpx;
+}
+.job-detail .banner .swiper .swiper-item ._img.data-v-2b870527 {
+  width: 100%;
+  height: 100%;
+}
+.job-detail .info.data-v-2b870527 {
+  width: 94%;
+  padding: 0 3%;
+}
+.job-detail .info .requirement .title.data-v-2b870527 {
+  font-size: 30rpx;
+  line-height: 70rpx;
+  font-weight: 600;
+  border-bottom: 1px solid #ebebeb;
+}
+.job-detail .info .requirement .req-list.data-v-2b870527 {
+  margin-left: 26rpx;
+  font-weight: 300;
+  font-size: 26rpx;
+}
+.job-detail .info .requirement .req-list .req-item.data-v-2b870527 {
+  line-height: 50rpx;
+}
+.job-detail .info .requirement .req-list .req-item > view.data-v-2b870527:last-child {
+  max-width: 500rpx;
+}
+.job-detail .sign-in.data-v-2b870527 {
+  width: 100%;
+  line-height: 70rpx;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+

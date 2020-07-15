@@ -42,7 +42,6 @@
 		},
 		methods: {
 			init() {
-				console.log(123);
 				this.$request('https://santong.easy.echosite.cn/api/v1/myRegisterData', 'POST', {}, (res) => {
 					console.log(res.data)
 					this.list = res.data;

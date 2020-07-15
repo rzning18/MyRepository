@@ -14,8 +14,5 @@ export default function request(url, method,data,callback) {
 			icon:'none',
 			title:'未登录',
 		})
-		uni.navigateTo({
-			url:'/pages/personal/personal'
-		})
 	}
 }

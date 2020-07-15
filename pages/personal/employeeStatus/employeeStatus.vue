@@ -7,23 +7,22 @@
 		</view> -->
 		<!-- 列表容器 -->
 		<view class="list-wrap">
-			<view class="item">
-			<!-- <view v-for="(item,index) in list" :key="index" class="item"> -->
+			<view v-for="(item,index) in list" :key="index" class="item">
 				<view class="name sb">
-					<view>vivi</view>
-					<view>2019-01-02</view>
+					<view>{{item.factorys.name}}</view>
+					<view>{{item.craft}}</view>
 				</view>
 				<view class="status sb">
-					<view>工种：普工</view>
-					<view>在职：是</view>
+					<view>工种：{{item.craft}}</view>
+					<view>状态：{{item.dismissioncondition}}</view>
 				</view>
 				<view class="relative flex">
-					<view>被推荐人：张三</view>
-					<view>推荐人：张三</view>
+					<view>被推荐人：{{item.berecommender.name}}</view>
+					<view>推荐人：{{item.recommender.name}}</view>
 				</view>
 				<view class="reward flex">
-					<view>推荐返现：30</view>
-					<view>返现周期：15天</view>
+					<view>推荐返现：{{item.recommoney}}</view>
+					<view>返现周期：{{item.repaydays}}天</view>
 				</view>
 			</view>
 		</view>

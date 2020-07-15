@@ -19,7 +19,7 @@
 			<view class="info">
 				<view class="user-name">{{ nickName || '昵称' }}</view>
 				<button style="margin-top: 10rpx;" v-if="!isLogin" open-type="getPhoneNumber" @getphonenumber="getNumber" withCredentials="true">登录</button>
-				<view v-if="isLogin" @click="go('/pages/personal/editInfo/editInfo')" class="edit iconfont icon-bianji">点击修改用户信息</view>
+				<view v-if="isLogin" @click="go('/pages/personal/editInfo/editInfo')" class="edit iconfont icon-bianji">查看或编辑个人信息</view>
 			</view>
 		</view>
 		<!-- 服务 -->
@@ -73,10 +73,12 @@
 				]
 			};
 		},
-		onLoad() {
+		onLoad(option) {
 			// 判断是否登录
 			this.isLogin = uni.getStorageSync('token') ? true : false;
 			this.poper = uni.getStorageSync('info') ? true : false;
+			//判断场景值
+			console.log(`本次的场景值是${option.scene}`)
 		},
 		methods: {
 			getNumber(e) {
@@ -244,7 +246,8 @@
 			padding: 2%;
 			// box-shadow: 0 0 2px 2px #ccc;
 			background-color: #ebebeb;
-			border-radius: 8rpx;
+			// border-radius: 8rpx;
+			border-radius: 80rpx;
 			height: 200rpx;
 			margin: 0 auto;
 
@@ -253,6 +256,11 @@
 				margin-right: 30rpx;
 				background-color: #ccc;
 				border-radius: 8rpx;
+				// width: 200rpx;
+				// height: 200rpx;
+				// margin-right: 30rpx;
+				// background-color: #ccc;
+				// border-radius: 95rpx;
 
 				img {
 					width: 100%;
